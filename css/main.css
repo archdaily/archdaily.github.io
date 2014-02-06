@@ -14,9 +14,10 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
+  font: 16px Helvetica, Arial, sans-serif;
   font-size: small;
   text-align: center;
+  color: #666;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,9 +26,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 { margin-bottom: 1em; }
 p { margin: 1em 0; }
 
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
+a         { color: #2E7CB6; }
+a:hover   { color: ##7AA9D4; }
 
 /*****************************************************************************/
 /*
@@ -43,11 +43,6 @@ a:visited { color: #a0a; }
   line-height: 1.75em;
 }
 
-.posts span {
-  color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
-}
 
 /*****************************************************************************/
 /*
@@ -57,37 +52,23 @@ a:visited { color: #a0a; }
 
 .site {
   font-size: 115%;
-  text-align: justify;
-  width: 42em;
+  text-align: left;
+  width: 100%;
+  max-width: 45em;
   margin: 3em auto 2em;
   line-height: 1.5em;
 }
+.header, #home {
+  padding: 0 20px;
+}
 
-.header a {
-  font-weight: bold;
-  text-decoration: none;
+#home {
+  margin-bottom: 100px;
 }
 
 .title {
   display: inline-block;
   margin-bottom: 2em;
-}
-
-.title a {
-  color: #a00;
-}
-
-.title a:hover {
-  color: #000;
-}
-
-.header a.extra {
-  color: #aaa;
-  margin-left: 1em;
-}
-
-.header a.extra:hover {
-  color: #000;
 }
 
 .meta {
@@ -97,11 +78,14 @@ a:visited { color: #a0a; }
 .footer {
   font-size: 80%;
   color: #666;
-  border-top: 4px solid #eee;
   margin-top: 2em;
   overflow: hidden;
+  background-color: #f1f1f1;
+  text-align: center;
 }
-
+.footer p {
+  text-align: center;
+}
 .footer .contact {
   float: left;
   margin-right: 3em;
