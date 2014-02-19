@@ -7,6 +7,10 @@ categories: deploy
 tags:       jenkins capistrano minitest
 ---
 
+TODO:
+=====
+
+![alt text](http://archdaily.github.io/images/deployment_ecosystem.png "The Deployment Ecosystem")
 
 A few years ago, we started coding ruby/rails applications using **vagrant** + **chef** in our computers, runinig tests with **minitest/rspec/etc** and then deploying to one or two **AWS EC2** instances using **capistrano**. A few months later, we discovered [**jenkins**][jenkins], so we changed a little bit our deployment workflow: now we pushed to master at **GitHub**; **jenkins** was notified thanks to **GitHub Hooks**, and if all tests passed, the code was deployed to our **AWS EC2** instances, with **capistrano**, in the **jenkins** server.
 
@@ -23,6 +27,8 @@ We'll see in detail both scenarios.
 
 Scenario 1: We need to deploy to all the current instances
 ==========================================================
+
+This scenario is described in the main picture of this post.
 
 We wrote a little library [(aws-deploy-helper)][aws-deploy-helper] that connects to the **AWS API** and gets the information of all the current *AWS EC2 instances* of an *ASG*, creating two useful files.
 
@@ -116,6 +122,13 @@ role(:web) { compute_ec2_addresses }
 
 Thus, capistrano can deploy normally to ```myproject_1``` and ```myproject_2``` EC2 instances.
 
+Now, you need to include the call of aws-deploy-helper as the first step of your project build:
+
+```
+#!/bin/bash
+/var/lib/jenkins/.rvm/rubies/ruby-1.9.3-p327/bin/ruby /var/lib/jenkins/aws-deploy-helper/main.rb
+```
+
 Scenario 2: The ASG scales up
 =============================
 
@@ -191,7 +204,11 @@ And then will execute it. By the way, the hostname **xxxxx3.compute-1.amazonaws.
 
 Now jenkins gets the API call to make a new **build**, but with a parameter: **HOSTNAME**. It's time to hack jenkins a little bit, last step!
 
-In the *myproject* configuration wizard, check the "This build is parameterized" option and then add a new *text parameter*, called *HOSTNAME* and with a default value *all*. Finaly, in the build step (when you should have something like ```cap production deploy```), type something like this:
+In the *myproject* configuration wizard, check the "This build is parameterized" option and then add a new *text parameter*, called *HOSTNAME* and with a default value *all*. 
+
+Next, in the "Build Triggers" section, check the "Trigger builds remotely" option and add a "authentication token" (the same you used in the JSON template: *alittletoken*).
+
+Finaly, in the build step (when you should have something like ```cap production deploy```), type something like this:
 
 ```
 #!/bin/bash
