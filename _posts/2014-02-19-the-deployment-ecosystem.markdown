@@ -10,7 +10,7 @@ tags:       jenkins capistrano minitest
 TODO:
 =====
 
-![alt text](http://archdaily.github.io/images/deployment_ecosystem.png "The Deployment Ecosystem")
+![alt text](/images/deployment_ecosystem.png "The Deployment Ecosystem")
 
 A few years ago, we started coding ruby/rails applications using **vagrant** + **chef** in our computers, runinig tests with **minitest/rspec/etc** and then deploying to one or two **AWS EC2** instances using **capistrano**. A few months later, we discovered [**jenkins**][jenkins], so we changed a little bit our deployment workflow: now we pushed to master at **GitHub**; **jenkins** was notified thanks to **GitHub Hooks**, and if all tests passed, the code was deployed to our **AWS EC2** instances, with **capistrano**, in the **jenkins** server.
 
