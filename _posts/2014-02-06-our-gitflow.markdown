@@ -9,13 +9,17 @@ One day I was reading [Hacker News][hn] when I stopped in a gist named _[a simpl
 
 After a few conversations during these months, we decided to write it down to specify the rules and why they work for us.
 
+
 # The Rules
+
 1. `master` must always be deployable
 1. **all changes** should be made using feature branches (merging with `master`)
 1. **all hotfixes** should be made in the `hotfixes-{name}`
 1. rebase to avoid/resolve conflicts; merge into `master`
 
+
 # The explanation
+
 1. `master` _must always be deployable_<br /> 
 We deploy `master` when pushing to origin. We do this using Jenkins and Continuous Integration.
 1. _**all changes** should be made using feature branches (merging with `master`)_<br /> 
@@ -25,7 +29,9 @@ When lauching an application you receive a lot of feedback, specially if you hav
 1. _rebase to avoid/resolve conflicts; merge in to `master`_<br />
 Please avoid the [merge bubbles][merge-bubles]. Please.
 
+
 #Some Code To Understand
+
 ```bash
 $ git checkout master
 $ git pull origin master
@@ -67,7 +73,7 @@ Into this beautiful git pipeline:
 
 ![alt text](/images/with-simple-branching.png "With our 'Very Simple Git Branching Model'")
 
-Feel free to comment!
+Feel free send us feedback!
 
 [hn]: https://news.ycombinator.com/
 [article]: https://gist.github.com/jbenet/ee6c9ac48068889b0912
