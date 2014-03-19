@@ -21,8 +21,8 @@ We deploy `master` when pushing to origin. We do this using Jenkins and Continuo
 1. _**all changes** should be made using feature branches (merging with `master`)_<br /> 
 This way branches have more meaning in a semantic way. Each branch is a feature of the project and the code can easily be found.
 1. _**all hotfixes** should be made in the `hotfixes-{name}` branches_<br />
-When lauching an application you receive a lot of feedback, specially if you have more than 9 million readers a month. This feedback sometimes is a new feature or sometimes is a quick and hot fix that should be deployed **immediately**. One optimization to this step is creating a hotfixes branch every release and deploy it to production, this way you will keep the master clean and you have a fast response time.
-1. _rebase to avoid/resolve conflicts; merge in to `master`_</br>
+When lauching an application you receive a lot of feedback, specially if you have more than 9 million readers a month. This feedback sometimes is a new feature or sometimes is a quick and hot fix that should be deployed **immediately**. One optimization to this step is creating a 'hotfix branch' every release and deploy it to production, this way you will keep the master clean and you have a fast response time.
+1. _rebase to avoid/resolve conflicts; merge in to `master`_<br />
 Please avoid the [merge bubbles][merge-bubles]. Please.
 
 #Some Code To Understand
