@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Our Very Simple Git Branching Model"
-date:   2014-02-06 15:54:18
+date:   2014-03-19 13:00:00
 categories: Softwre-Engineering Git Gitflow
 ---
 
