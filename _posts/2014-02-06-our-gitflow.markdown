@@ -73,7 +73,7 @@ Into this beautiful git pipeline:
 
 ![alt text](/images/with-simple-branching.png "With our 'Very Simple Git Branching Model'")
 
-Feel free send us feedback!
+Feel free to send feedback!
 
 [hn]: https://news.ycombinator.com/
 [article]: https://gist.github.com/jbenet/ee6c9ac48068889b0912
