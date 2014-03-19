@@ -31,20 +31,23 @@ $ git checkout master
 $ git pull origin master
 $ git checkout -b new-feature
 
-# Here I make the changes to my files
+# Make changes to your files.
 
 $ git add .
 $ git commit -m "Changes"
 
-# I repeat the previous steps the times I wish and then I upload them to the repository
+# Repeat the previous steps the times you wish and then upload them to the repository.
 
 $ git fetch origin
 $ git rebase origin/new-feature
 $ git rebase origin/master
 
+# Push and rebase to mantain the master code inside your branch.
+
+$ git rebase -i origin/master
 $ git push origin new-feature
 
-# After finishing the merge I push the nre features to master
+# After finishing the merge push the new features to master.
 
 $ git checkout master
 $ git pull origin master
@@ -58,7 +61,13 @@ The importance of `--no-ff` flags when merging is huge, because it prevents a "f
 
 If you follow this methodology you can transform this merge chaos:
 
+![alt text](/images/without-simple-branching.png "Without our 'Very Simple Git Branching Model'")
+
 Into this beautiful git pipeline:
+
+![alt text](/images/with-simple-branching.png "With our 'Very Simple Git Branching Model'")
+
+Feel free to comment!
 
 [hn]: https://news.ycombinator.com/
 [article]: https://gist.github.com/jbenet/ee6c9ac48068889b0912
