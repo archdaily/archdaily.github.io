@@ -53,14 +53,17 @@ a, a:hover {
   font-size: small;
   font-weight: bold;
 }
+.center{
+  margin: auto;
+  display: block;
+}
+.gist-file{
+  font-size: 12px !important;
+}
 
-
-
-
-
-
-
-
+#disqus_thread{
+  margin-top: 50px;
+}
 
 
 
