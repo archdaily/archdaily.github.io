@@ -57,6 +57,9 @@ As you can see, I used a HTML Template, that can be found here:
 
 In these gists I included a **most visited articles** variable, in order to show how you could do it.
 
+Remember, you can use de [Google Analytics Query Explorer][query_explorer] to get a better understanding about the Google Analytics API (filters, dimentions, and metrics). 
 
+If you have any doubt, don't hesitate in contacting us!
 
 [dashboards]: http://analytics.blogspot.com/2012/08/automate-google-analytics-reporting.html
+[query_explorer]: http://ga-dev-tools.appspot.com/explorer/
