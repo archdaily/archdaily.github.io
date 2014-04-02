@@ -2,7 +2,7 @@
 layout:     post
 title:      "How to get a daily HTML report email from Google Analytics"
 author:     Gustavo Garcia G
-date:       2014-04-02 10:00:00
+date:       2014-04-01 10:00:00
 categories: analytics
 tags:       reports drive analytics
 ---
