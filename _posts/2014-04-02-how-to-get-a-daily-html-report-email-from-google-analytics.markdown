@@ -2,12 +2,12 @@
 layout:     post
 title:      "How to get a daily HTML report email from Google Analytics"
 author:     Gustavo Garcia G
-date:       2014-04-01 10:00:00
+date:       2014-04-02 10:00:00
 categories: analytics
 tags:       reports drive analytics
 ---
 
-{% img center /images/dailyreport.png 619px 393 'title text' 'alt text' %}
+<img class="center" src="/images/dailyreport.png" width="619px" height="393px"/>
 
 I love getting daily reports from all our services. It's very useful to see a snapshot of what's going on with a service. 
 
