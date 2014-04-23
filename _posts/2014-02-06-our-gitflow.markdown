@@ -51,7 +51,7 @@ $ git rebase origin/master
 
 # Push and rebase to mantain the master code inside your branch.
 
-$ git rebase -i origin/master
+$ git rebase origin/master
 $ git push origin new-feature
 
 # After finishing the merge push the new features to master.
