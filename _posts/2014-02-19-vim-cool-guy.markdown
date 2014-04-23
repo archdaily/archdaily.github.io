@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "VIM can be a cool guy..."
+author: Sebastian Machuca
 date:   2014-02-19 15:54:18
 categories: text-editors vim
 ---

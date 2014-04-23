@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Our Very Simple Git Branching Model"
+author: Mauricio Ulloa
 date:   2014-03-19 13:00:00
 categories: Softwre-Engineering Git Gitflow
 ---

@@ -53,6 +53,11 @@ a, a:hover {
   font-size: small;
   font-weight: bold;
 }
+.post-author {
+  color: #999;
+  margin-bottom: 4em;
+}
+
 .center{
   margin: auto;
   display: block;
