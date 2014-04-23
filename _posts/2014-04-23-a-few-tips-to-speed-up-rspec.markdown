@@ -184,7 +184,7 @@ xit "sets scheduled as true" do
 2 - To run just a specific test, you can run this command:
 
 ```
-bin/rpsec spec/models/article_spec.rb:X
+bin/rspec spec/models/article_spec.rb:X
 ``` 
 Where X is the number line of the specific test
 
