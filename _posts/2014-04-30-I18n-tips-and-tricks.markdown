@@ -13,8 +13,12 @@ When I began internationalizing an application, I started wondering which were t
 One option for setting the locale in the application is using the URL (e.g. `innovation.archdaily.com/us`). I my opinion this is a very transpartent approach and [it's REST friendly][REST-friendly]. The best way to set the locale in the URI is using routing scopes:
 
 ```ruby
-scope '/:locale', 
-	get '/' => 'main_controller#index'
+App::Application.routes.draw do
+	...
+	scope '/:locale', 
+		get '/' => 'main_controller#index'
+	end
+	...
 end
 ```
 
@@ -23,8 +27,12 @@ end
 Using scopes in routing to define the language makes easier to define the supported and default locale. If you are supporting `en` and `es`, and the default locale is `en` you can just put it this way in the routing file:
 
 ```ruby
-scope '/:locale', locale: /en|es/, defaults: {locale: 'en'} do
-	get '/' => 'main_controller#index'
+App::Application.routes.draw do
+	...
+	scope '/:locale', locale: /en|es/, defaults: {locale: 'en'} do
+		get '/' => 'main_controller#index'
+	end
+	...
 end
 ```
 
@@ -33,12 +41,16 @@ end
 If your application is already running you may have many routes that are going to get broken with the new URLs. There's a very simple way to redirect the URL in the routing file, using `redirect` outside the `scope`. For example:
 
 ```ruby
-scope '/:locale', locale: /en|es/, defaults: {locale: 'en'} do
-	get '/' => 'main_controller#index'
-end
+App::Application.routes.draw do
+	...
+	scope '/:locale', locale: /en|es/, defaults: {locale: 'en'} do
+		get '/' => 'main_controller#index'
+	end
 
-get '/old/url' => redirect('/en/old/url')
-get '/vieja/url' => redirect('/es/old/url')
+	get '/old/url' => redirect('/en/old/url')
+	get '/vieja/url' => redirect('/es/old/url')
+	...
+end
 ```
 
 # Setting the locale from the URL
@@ -47,13 +59,13 @@ Now that you support the locale in the URL you should set it in your application
 
 ```ruby	
 class ApplicationController < ActionController::Base
-...
+	...
 	before_filter :set_locale
 
 	def set_locale
  		I18n.locale = params[:locale]
 	end
-...
+	...
 end
 ```
 
@@ -69,14 +81,14 @@ This fix works but you should do it for every `product_url`, `product_path`, `us
 
  ```ruby	
 class ApplicationController < ActionController::Base
-...
+	...
 	before_filter :set_locale
 
 	def set_locale
  		I18n.locale = params[:locale]
  		Rails.application.routes.default_url_options[:locale]= I18n.locale
 	end
-...
+	...
 end
 ```
 
