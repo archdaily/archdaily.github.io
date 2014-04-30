@@ -21,7 +21,7 @@ App::Application.routes.draw do
 	...
 end
 ```
-
+ 
 ## Defining default and supported locales
 
 Using scopes in routing to define the language makes easier to define the default and supported locale. If you are supporting `en` and `es`, and the default locale is `en` you can just put it this way in the routing file:
@@ -35,7 +35,7 @@ App::Application.routes.draw do
 	...
 end
 ```
-
+ 
 ## Redirecting legacy URLs
 
 If your application is already running you may have many routes that are going to be broken with the new URLs. There's a very simple way to redirect the URL in the routing file, using `redirect` outside the `scope`. For example:
@@ -52,7 +52,7 @@ App::Application.routes.draw do
 	...
 end
 ```
-
+ 
 ## Setting the locale from the URL
 
 Now that you support the locale in the URL you should set it in your application. A very common and simple solution is setting the locale in a `before_filter` inside `application_controller.rb`:
@@ -68,8 +68,8 @@ class ApplicationController < ActionController::Base
 	...
 end
 ```
-
-## But now the URL hepers doesn't work ...
+ 
+## But now the URL helpers doesn't work ...
 
 After defining the new routes, the helpers are going to return broken URLs. This happens because they assume that the resource's path is the old one. A fix that some developers do is the following:
 
@@ -91,7 +91,7 @@ class ApplicationController < ActionController::Base
 	...
 end
 ```
-
+ 
 ## Creating translated views
 
 Sometimes you will need different views for each localization. The good practice says that you should **totally avoid this** because is much harder to mantain than using the `t(' ')` function. [Here are some tips][rails-i18n-tips] for using `yml` and `t(' ')` function like a pro. 
