@@ -3,7 +3,8 @@ layout: post
 title:  "I18n tips and tricks"
 author: Mauricio Ulloa
 date:   2014-04-30 13:00:00
-categories: Softwre-Engineering i18n ror good-practices
+categories: i18n 
+tags: ror good-practices
 ---
 
 When I began internationalizing an application, I started wondering which were the good practices. After reading some tips in many blogs I concluded that there's no silver bullet, but there are some tricks that can simplify your work. Here are some tips and tricks that I've learned:
