@@ -34,32 +34,28 @@ Please avoid the [merge bubbles][merge-bubles]. Please.
 #Some Code To Understand
 
 ```bash
-$ git checkout master
+
+# First, create a new branch from master.
 $ git pull origin master
 $ git checkout -b new-feature
 
-# Make changes to your files.
-
+# Make changes and commits.
 $ git add .
 $ git commit -m "Changes"
 
-# Repeat the previous steps the times you wish and then upload them to the repository.
-
-$ git fetch origin
-$ git rebase origin/new-feature
-$ git rebase origin/master
-
-# Push and rebase to mantain the master code inside your branch.
-
+# When finishing the new feature you should bring the code inside master to the branch. 
+# It's a good practice to make it frequently during the development of the feature.
+$ git fetch origin/master
 $ git rebase origin/master
 $ git push origin new-feature
+# Sometimes, when there are conflits at rebasing, you should make git push -f origin new-feature.
 
-# After finishing the merge push the new features to master.
-
+# After finishing, you should merge and push the new features to master.
 $ git checkout master
 $ git pull origin master
 $ git merge --no-ff new-feature
 $ git push origin master
+
 ```
 
 The importance of `--no-ff` flags when merging is huge, because it prevents a "fast forward" constructing a commit for the merge. You can read more information in this [post][so-no-ff].
