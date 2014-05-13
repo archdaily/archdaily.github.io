@@ -21,9 +21,9 @@ After a few conversations during these months, we decided to write it down to sp
 
 # The explanation
 
-1. `master` _must always be deployable_<br /> 
+1. `master` _must always be deployable_<br />
 We deploy `master` when pushing to origin. We do this using Jenkins and Continuous Integration.
-1. _**all changes** should be made using feature branches (merging with `master`)_<br /> 
+1. _**all changes** should be made using feature branches (merging with `master`)_<br />
 This way branches have more meaning in a semantic way. Each branch is a feature of the project and the code can easily be found.
 1. _**all hotfixes** should be made in the `hotfixes-{name}` branches_<br />
 When lauching an application you receive a lot of feedback, specially if you have more than 9 million readers a month. This feedback sometimes is a new feature or sometimes is a quick and hot fix that should be deployed **immediately**. One optimization to this step is creating a hotfixes branch every release and deploy it to production, this way you will keep the master clean and you have a fast response time.
@@ -43,9 +43,9 @@ $ git checkout -b new-feature
 $ git add .
 $ git commit -m "Changes"
 
-# When finishing the new feature you should bring the code inside master to the branch. 
+# When finishing the new feature you should bring the code inside master to the branch.
 # It's a good practice to make it frequently during the development of the feature.
-$ git fetch origin/master
+$ git fetch origin master
 $ git rebase origin/master
 $ git push origin new-feature
 # Sometimes, when there are conflits at rebasing, you should make git push -f origin new-feature.
