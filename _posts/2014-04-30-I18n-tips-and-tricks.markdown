@@ -15,7 +15,7 @@ For choosing the names of the locales that you are going to use, the best is to 
 
 ## Setting the locale in the URL
 
-One option for setting the locale in the application is using the URL (e.g. `innovation.archdaily.com/us`). I my opinion this is a very transpartent approach and [it's REST friendly][REST-friendly]. The best way to set the locale in the URL is using routing scopes:
+One option for setting the locale in the application is using the URL (e.g. `innovation.archdaily.com/us`). In my opinion this is a very transpartent approach and [it's REST friendly][REST-friendly]. The best way to set the locale in the URL is using routing scopes:
 
 ```ruby
 App::Application.routes.draw do
