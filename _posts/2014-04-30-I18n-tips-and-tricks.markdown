@@ -3,7 +3,7 @@ layout: post
 title:  "I18n tips and tricks"
 author: Mauricio Ulloa
 date:   2014-04-30 13:00:00
-categories: i18n 
+categories: i18n
 tags: ror good-practices
 ---
 
@@ -13,96 +13,109 @@ When I began internationalizing an application, I started wondering which were t
 
 For choosing the names of the locales that you are going to use, the best is to follow the standard defined in _Sven Fuchs_'s repository [rails-i18n][rails-i18n].
 
-## Setting the locale in the URL
+## Setting the site in the URL
 
-One option for setting the locale in the application is using the URL (e.g. `innovation.archdaily.com/us`). I my opinion this is a very transpartent approach and [it's REST friendly][REST-friendly]. The best way to set the locale in the URL is using routing scopes:
+One option for setting the site in the application is using the URL (e.g. `innovation.archdaily.com/us`). In my opinion this is a very transparent approach and [it's REST friendly][REST-friendly]. The best way to set the site in the URL is using routing scopes:
 
 ```ruby
 App::Application.routes.draw do
 	...
-	scope '/:locale', 
+	scope '/:site',
 		get '/' => 'main_controller#index'
 	end
 	...
 end
 ```
- 
-## Defining default and supported locales
 
-Using scopes in routing to define the language makes easier to define the default and supported locale. If you are supporting `en` and `es`, and the default locale is `en` you can just put it this way in the routing file:
+## Defining default and supported sites
+
+Using scopes in routing makes easier to define the default and supported site. If you are supporting `us` and `cl`, and the default site is `us` you can just put it this way in the routing file:
 
 ```ruby
 App::Application.routes.draw do
 	...
-	scope '/:locale', locale: /en|es/, defaults: {locale: 'en'} do
+	scope '/:site', locale: /us|cl/, defaults: {locale: 'us'} do
 		get '/' => 'main_controller#index'
 	end
 	...
 end
 ```
- 
+
 ## Redirecting legacy URLs
 
-If your application is already running you may have many routes that are going to be broken with the new URLs. There's a very simple way to redirect the URL in the routing file, using `redirect` outside the `scope`. For example:
+If your application is already running you may have many routes that are going to get broken with the new URLs. There's a very simple way to redirect the URL in the routing file, using `redirect` outside the `scope`. For example:
 
 ```ruby
 App::Application.routes.draw do
 	...
-	scope '/:locale', locale: /en|es/, defaults: {locale: 'en'} do
+	scope '/:site', locale: /us|cl/, defaults: {locale: 'us'} do
 		get '/' => 'main_controller#index'
 	end
 
-	get '/old/url' => redirect('/en/old/url')
-	get '/vieja/url' => redirect('/es/old/url')
+	get '/old/url' => redirect('/us/old/url')
+	get '/vieja/url' => redirect('/cl/old/url')
 	...
 end
 ```
- 
+
 ## Setting the locale from the URL
 
-Now that you support the locale in the URL you should set it in your application. A very common and simple solution is setting the locale in a `before_filter` inside `application_controller.rb`:
+Now that you support the site in the URL you should set the locale in your application. A very common and simple solution is setting the locale in a `before_filter` inside `application_controller.rb`:
 
-```ruby	
+```ruby
 class ApplicationController < ActionController::Base
 	...
 	before_filter :set_locale
 
 	def set_locale
- 		I18n.locale = params[:locale]
+		case params[:site]
+		when 'cl'
+    	locale = 'es-CL'
+		else
+      locale = 'en-US'
+		end
+		I18n.locale = locale
 	end
 	...
 end
 ```
- 
+
 ## But now the URL helpers doesn't work ...
 
 After defining the new routes, the helpers are going to return broken URLs. This happens because they assume that the resource's path is the old one. A fix that some developers do is the following:
 
-```ruby	
-link_to @product.title , product_url(@product, locale: params[:locale])
+```ruby
+link_to @product.title , product_url(@product, site: params[:site])
 ```
 
-This fix works but you must do it for every `product_url`, `product_path`, `user_url`, `user_path`, etc... inside your application. There is a cleaner and more maintainable way to solve this issue, in the method that is setting the locale you can add `Rails.application.routes.default_url_options[:locale]= I18n.locale`:
+This fix works but you must do it for every `product_url`, `product_path`, `user_url`, `user_path`, etc... inside your application. There is a cleaner and more maintainable way to solve this issue, in the method that is setting the locale you can add `Rails.application.routes.default_url_options[:site] = params[:site]`:
 
-```ruby	
+```ruby
 class ApplicationController < ActionController::Base
 	...
 	before_filter :set_locale
 
 	def set_locale
- 		I18n.locale = params[:locale]
- 		Rails.application.routes.default_url_options[:locale]= I18n.locale
+		case params[:site]
+		when 'cl'
+			locale = 'es-CL'
+		else
+			locale = 'en-US'
+		end
+		I18n.locale = locale
+		Rails.application.routes.default_url_options[:site] = params[:site]
 	end
 	...
 end
 ```
+
 ## Setting up a fallback
 
 Sometimes it's mandatory to have fallbacks for missing translations. The best approach that I've found is from _Bozhidar Batsov_'s [blog][batsov-post], who gives three different options for setting it in `application.rb`:
 
 1- Fallback to what's specified in `config.i18n.default_locale`.
 
-```ruby	
+```ruby
 class Application < Rails::Application
 	...
 	config.i18n.fallbacks = true
@@ -112,7 +125,7 @@ end
 
 2- Fallback to a locale, regardless of what's in `config.i18n.default_locale`.
 
-```ruby	
+```ruby
 class Application < Rails::Application
 	...
 	config.i18n.fallbacks = [:en]
@@ -122,7 +135,7 @@ end
 
 3- Specify a fallback map.
 
-```ruby	
+```ruby
 class Application < Rails::Application
 	...
 	config.i18n.fallbacks = {'es' => 'en', 'fr' => 'en', 'de' => 'fr'}
@@ -132,11 +145,11 @@ end
 
 ## Creating translated views
 
-Sometimes you will need different views for each localization. The good practice says that you should **totally avoid this** because is much harder to mantain than using the `t(' ')` function. [Here are some tips][rails-i18n-tips] for using `yml` and `t(' ')` function like a pro. 
+Sometimes you will need different views for each localization. The good practice says that you should **totally avoid this** because is much harder to maintain than using the `t(' ')` function. [Here are some tips][rails-i18n-tips] for using `yml` and `t(' ')` function like a pro.
 
 A very frequent problem is to have different css for different locales. There are two approaches for solving this: the first one is to use the [`:lang` css selector][lang-css-document] (which works pretty well in font related styles) and the second one is to localize the css class (e.g. `<div class="<%= t('class-name') %>">`).
 
-If you can't avoid having translated views, the good practice is naming the views `name.locale.html.erb`. When you follow this format you can call the view `<%= render name %>` and the corresponding view will be rendered by default. The locale will be taken from `params[:locale]`.
+If you can't avoid having translated views, the good practice is naming the views `name.locale.html.erb`. When you follow this format you can call the view `<%= render name %>` and the corresponding view will be rendered by default. The locale will be taken from `I18n.locale`.
 
 ## Using multiple YML files
 
