@@ -27,14 +27,14 @@ App::Application.routes.draw do
 end
 ```
 
-## Defining default and supported sites
+## Defining supported sites
 
-Using scopes in routing makes easier to define the default and supported site. If you are supporting `us` and `cl`, and the default site is `us` you can just put it this way in the routing file:
+Using scopes in routing makes easier to define the supported sites. If you are supporting `us` and `cl`  you can just put it this way in the routing file:
 
 ```ruby
 App::Application.routes.draw do
 	...
-	scope '/:site', locale: /us|cl/, defaults: {locale: 'us'} do
+	scope '/:site', locale: /us|cl/ do
 		get '/' => 'main_controller#index'
 	end
 	...
@@ -48,7 +48,7 @@ If your application is already running you may have many routes that are going t
 ```ruby
 App::Application.routes.draw do
 	...
-	scope '/:site', locale: /us|cl/, defaults: {locale: 'us'} do
+	scope '/:site', locale: /us|cl/ do
 		get '/' => 'main_controller#index'
 	end
 
@@ -88,7 +88,7 @@ After defining the new routes, the helpers are going to return broken URLs. This
 link_to @product.title , product_url(@product, site: params[:site])
 ```
 
-This fix works but you must do it for every `product_url`, `product_path`, `user_url`, `user_path`, etc... inside your application. There is a cleaner and more maintainable way to solve this issue, in the method that is setting the locale you can add `Rails.application.routes.default_url_options[:site] = params[:site]`:
+This fix works but you must do it for every `product_url`, `product_path`, `user_url`, `user_path`, etc... inside your application. There is a cleaner and more maintainable way to solve this issue, to add a `default_url_options` method in:
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -103,8 +103,11 @@ class ApplicationController < ActionController::Base
 			locale = 'en-US'
 		end
 		I18n.locale = locale
-		Rails.application.routes.default_url_options[:site] = params[:site]
 	end
+
+  def default_url_options
+    { site: params[:site] || 'us' }
+  end
 	...
 end
 ```
