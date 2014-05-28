@@ -70,9 +70,9 @@ class ApplicationController < ActionController::Base
 	def set_locale
 		case params[:site]
 		when 'cl'
-    	locale = 'es-CL'
+			locale = 'es-CL'
 		else
-      locale = 'en-US'
+			locale = 'en-US'
 		end
 		I18n.locale = locale
 	end
@@ -105,9 +105,9 @@ class ApplicationController < ActionController::Base
 		I18n.locale = locale
 	end
 
-  def default_url_options
-    { site: params[:site] || 'us' }
-  end
+	def default_url_options
+		{ site: params[:site] || 'us' }
+	end
 	...
 end
 ```
