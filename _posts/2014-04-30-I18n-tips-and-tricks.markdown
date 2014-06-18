@@ -135,6 +135,7 @@ class Application < Rails::Application
 	...
 end
 ```
+Note: Make sure that `config.i18n.fallbacks` is not set in environment's configuration files (`production.rb`, `development.rb`, etc...).
 
 3- Specify a fallback map.
 
