@@ -25,8 +25,19 @@ I use `rebase` to insert in the branches that I'm currently working on the new c
 
 For example:
 
-You are working on the uploader of your application in a branch named `fix-uploader`
+You are working on the uploader of your application in a feature branch named `fix-uploader`.
 
+![alt text](/images/image-pipline-before-rebase1.png "Git Pipeline Before Rebase")
+
+Someone push important hotfixes in `master` and you need them in the feature branch.
+
+![alt text](/images/image-pipline-before-rebase2.png "Git Pipeline Before Rebase")
+
+Then you can just make a `rebase origin/master` and you will have those changes integrated in `fix-uploader`.
+
+![alt text](/images/image-pipline-after-rebase.png "Git Pipeline After Rebase")
+
+NOTE: To push the changes in the branch `fix-uploader` you should make a `push -f origin fix-uploader`.
 
 
 
