@@ -1,3 +1,3 @@
 name: ArchDaily Dev Blog
 markdown: redcarpet
-pygments: true
+highlighter: true

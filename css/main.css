@@ -123,6 +123,11 @@ a:hover   { color: ##7AA9D4; }
   margin-left: 1.35em;
 }
 
+.text-small {
+  font-size: 13px;
+  /*font-weight: lighter;*/
+}
+
 .post code {
   border: 1px solid #ddd;
   background-color: #eef;
