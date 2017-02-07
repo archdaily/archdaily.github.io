@@ -3,8 +3,32 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Source Sans Pro", "Helvetica", sans-serif;
   color: black;
 }
+h1 { font-size: 2em;  }
+h2 { font-size: 1.5em;  }
+h3 { font-size: 1.17em;  }
+h4 { font-size: 1.12em;  }
+h5 { font-size: .83em;  }
+h6 { font-size: .75em;  }
 a, a:hover {
   text-decoration: none;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #000000;
+}
+
+th{
+    border: 1px solid #000000;
+    padding: 5px;
+}
+
+td{
+    border: 1px solid #000000;
+    padding: 5px;
+}
+ul {
+  margin-bottom: 10px;
 }
 
 /* HEADER */
@@ -20,6 +44,9 @@ a, a:hover {
   margin: 0 auto;
 }
 .logo-zone img {
+  width: 100%;
+}
+.full-image {
   width: 100%;
 }
 .site-title {
