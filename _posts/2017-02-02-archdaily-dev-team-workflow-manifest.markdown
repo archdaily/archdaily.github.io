@@ -6,7 +6,7 @@ date:   2017-02-07 14:53
 categories: team workflow
 ---
 The organization and management of a software development team is one of the key factors to create 
-quality software, so is crucial for software teams to have clear definitions and apply good practices
+quality software, so it's crucial for software teams to have clear definitions and apply good practices
 to make the management of the team a strength more than a weakness. In this article, We're going to
 explain how ArchDaily's Development Team handle its day to day job and why We use the methodology that
 We use.
@@ -15,20 +15,20 @@ We use.
 
 Handling and manage a software development team can be a daunting task due to several factors, such as:
 
-* __Team size__: as team grows up the communications between members of the team became more difficult,
+* __Team size__: as team grows, the communications between members of the team becomes more difficult,
 making organization harder.
-* __Location__: some teams are distributed on different locations around the world. Again, the communication
-becomes harder, creating problems on team's organization.
-* __Lack of a structured methodology__: sometimes dev teams doesn't follow a defined methodology. This creates
+* __Location__: some teams are distributed over different locations around the world. Again, the communication
+becomes harder, creating problems in the team's organization.
+* __Lack of a structured methodology__: sometimes dev teams don't follow a defined methodology. This creates
 noise in the daily job of members and obviously makes harder to track and review the progress of the team.
 
 Teams not necessarily need to follow one of the standard software methodologies, but it can be a big mistake
 to not follow any methodology at all. Just make sure your team is being managed in a clear and structured way
-and that every member of the team are committed (and in agreement) with the used methodology.
+and that every member of the team is committed (and in agreement) with the used methodology.
 
 Here at ArchDaily, We follow an agile approach and our framework of choice is Scrum. This framework gives some
 useful guidelines (which can be adapted to every team's needs) and the support of online management tools for
-this methodology is huge. Before going into the details of our version of Scrum, let's explain how is the architecture of our team.
+this methodology is huge. Before going into the details of our version of Scrum, let's talk about our team's architecture.
 
 ## Team Infraestructure
 
@@ -36,14 +36,14 @@ The general picture is:
 
 <img src="/images/team_architecture.png" alt="Team Architecture" class="full-image"/>
 
-In the graph above, it can be seen the general infrastructure of AD's dev team. In general:
+The above graph shows the general infrastructure of AD's dev team. In general:
 
-* __CTO__: is the main leader of the team. This role is in charge of define the general work guidelines of the entire
+* __CTO__: is the main leader of the team. This role is in charge of defining the general work guidelines of the entire
 team and it's the connection between the company strategic decisions and how the dev team transforms those decisions
 into real software requirements.
 * __Lead Backend Developers__: these are the leaders of several software projects in the organization. This hierarchical representation
 of the team its due the high number of projects to manage and also the high number of developers in the team. This role
-allows to simplify the communication between stakeholders in each project and is a sane way for the CTO to have visibility on the entire team.
+allows to simplify the communication between stakeholders in each project and it's a sane way for the CTO to have visibility of the entire team.
 
 Next roles are very self-explanatory:
 
@@ -52,14 +52,14 @@ Next roles are very self-explanatory:
 * Backend Developers
 
 The main reason to decouple the standard dev role into more specific roles is to improve communication workflow inside the team.
-In general, every Lead Backend Developer form a sub-team with its Backend Developers. The frontend and DevOps are sub-teams by themselves.
+In general, every Lead Backend Developer forms a sub-team with his/her Backend Developers. The frontend and DevOps are sub-teams by themselves.
 
 With a well defined infrastructure, the next step is to define how the chosen methodology is going to be used.
 
 ## Scrum through AD's eyes
 
 Scrum is a well known framework for software management which became highly popular when agile software methodologies made their
-appearance. The workflow in Scrum is based on different stages and elements. The next ones are the key elements for our own workflow:
+appearance. The workflow in Scrum is based on different stages and elements. The following ones are the key elements for our own workflow:
 
 * __Backlog Planning__: In this stage, the CTO has a planning meeting with each sub-team (the second row of the team infrastructure).
 For example, the CTO meets a Lead Backend Developer with all the Backend Developers of their team. In this meeting, the CTO communicates
@@ -69,13 +69,13 @@ __This meeting needs to be done the first day of the iteration__.
 * __Iteration Size__: we decided to use __2 week__ for each iteration. This timespan suits our needs the best due to the kind of requirements
 that We do (commonly We develop user stories big enough to span more than a week).
 * __Daily Meetings (or Standups)__: Every day, the entire team has a general short meeting in which each member of the team gives a brief
-overview of their work the past day and the work for today and also shares problems and interesting findings to the rest of the team. 
+overview of their work the during the past day and the work for today and also shares problems and interesting findings to the rest of the team. 
 It must be noted that in this meeting __we do not solve any problem at all__. If one of the members found a blocking problem and other member
 has some solution, after the meeting both can have a more personal meeting to discuss in more detail their thoughts. __The meeting must not 
 exceed 15-20 minutes__. This meeting allows to every member of the team to have __visibility__ and to improve software reuse by sharing solutions 
 to common problems between members.
 * __Constant Backlog Revision__: During the iteration is allowed to add more stories to the backlog by any member of the team. This is useful
-for example if a dev thinks that one story can be splitted in two more atomic stories. __We favor atomic stories in the backlog__.
+for example if a dev thinks that one story can be splitted into two more atomic stories. __We favor atomic stories in the backlog__.
 
 Summarizing:
 
@@ -108,8 +108,7 @@ Summarizing:
 
 ## Implementation
 
-The online tool that we use for our software development workflow is [PivotalTracker](http://pivotaltracker.com/). Basically, We've 
-one project for every sub-team inside our main team:
+The online tool that we use for our software development workflow is [PivotalTracker](http://pivotaltracker.com/). Basically, We have one project for every sub-team inside our main team:
 
 * Backend Projects: one project for each backend sub-team
 * Frontend Project: a project for the frontend team
@@ -121,10 +120,10 @@ To have entire visibility of team's tasks, PivotalTracker has the concept of [Wo
 
 which gives the ability to have in one board, access to selected (or all) the boards on different projects.
 
-In PivotalTracker, exist four different types of stories:
+In PivotalTracker, there are four different types of stories:
 
-* __Features__: These represents the typical concept of an user story. Features deliver verifiable business value to project's stakeholders.
-* __Chores__: These kind of stories do not add direct value to stakeholders (for example: "Update SSL Certs") but they are necessary for the
+* __Features__: These represent the typical concept of an user story. Features deliver verifiable business value to project's stakeholders.
+* __Chores__: These kind of stories don't add direct value to stakeholders (for example: "Update SSL Certs") but they are necessary for the
 success of the project.
 * __Bugs__: They are indeed bugs found in the project.
 * __Releases__: These are merely milestones markers. They represent a point in time where a group of stories (or more general, a complete feature) needs to
@@ -137,10 +136,10 @@ a feature/chore story (or several stories) and it should be as atomic as possibl
 to much time to split a general feature into atomic stories, then after the meeting (in no more than 2 days) the owner or requester of that feature should do that job.
 
 After adding all the stories for the current iteration into the icebox, the corresponding owner together with the CTO should move every story into the backlog and
-__estimate__ the points for that story (__in our case, every point correspond to 1 working hour__). As a general rule, there can be no unestimated stories in
+__estimate__ the points for that story (__in our case, every point corresponds to 1 working hour__). As a general rule, there can't be unestimated stories in
 the backlog.
 
-As the final result of this stage, __the icebox should be empty and the backlog should have all estimated features (as atomic as possible) to do in the current iteration__. 
+As the final result of this stage, __the icebox should be empty and the backlog should have all estimated features (as atomic as possible) to do during the current iteration__. 
 
 #### Organization of Cards in the Backlog Planning Stage
 
@@ -191,7 +190,7 @@ The volatility for the project is:
 Volatility = (Standard Deviation of Velocity * 100) / Mean of Velocity = 50.5%
 
 This is a extremely high value. As a rule of thumbs, teams should try to have a low volatility because in general terms the work of team should be as stable
-as possible (in terms of productivity). A high volatility could reveal an unstable and unproductive team. PivotalTracker, gives all this metrics in a nice chart
+as possible (in terms of productivity). A high volatility could reveal an unstable and unproductive team. PivotalTracker, gives all these metrics in a nice chart
 and as simple as possible:
 
 <img alt="Volatility" src="https://www.pivotaltracker.com/marketing_assets/blog/2016/02/velocity-ca53262255710ea3e340c65bfadeddbbbe1ea2953d2b05e797adfc4522c99363.png" class="center"/>
@@ -208,13 +207,13 @@ In short:
  * If a feature involves more than one story, then create an Epic and associate every story of the feature using the label of the epic.
  * For every Epic create a Release Card with a release date. Estimate the release date! 
  * You can't have an Epic without a Release Card.
- * For single stories (stories that by itself represent an entire feature) don't use Epics and Release Cards. Is not necessary.
+ * For single stories (stories that by itself represent an entire feature) don't use Epics and Release Cards. It's not necessary.
  * At the end of the Backlog Planning there should be no stories in the Icebox.
 * __During the Current Iteration__:
  * If you need to add more cards, do it. Don't add new feature cards unless they allow for a more atomic representation of a feature in the current backlog. In general
    you should be adding only new chore/bugs cards.
- * If a new features or a not so important bug/chore arrives, add it to the Icebox.
- * New bugs are solved by priority. If it has high priority then add it to the current backlog and solve it right away. For low priority bugs use your intuition and criteria (add them
+ * If a new feature or a not so important bug/chore arrives, add it to the Icebox.
+ * New bugs are solved according to priority. If it has a high priority then add it to the current backlog and solve it right away. For low priority bugs use your intuition and criteria (add them
    to the current backlog or to the icebox).
  * As soon as a story is finished click the finish button in PivotalTracker!
 * __General Rules__:
@@ -226,15 +225,15 @@ In short:
 
 ## Conclusion
 
-Organization of a development team can be hard if you not follow a structured methodology. Here at AD, We favor agile practices because they give us enough flexibility
+Organization of a development team can be hard if you don't follow a structured methodology. Here at AD, We favor agile practices because they give us enough flexibility
 in our day to day work but with enough structure to keep things organized. In practice, We use PivotalTracker as the online tool to apply our methodology and in this post
 our general guidelines on how to use PivotalTracker were given. If you want to keep your team organized, We recommend:
 
 * __Maintain a strong communication between team members__: use any form/tool of communication (in person, Slack, Hangouts, etc.) but communicate each other on your team.
-Daily Meetings are a key tool to this. Communication can reduce development times by sharing knowledge and experience between devs and by avoiding misunderstandings in the
+Daily Meetings are a key tool for this. Communication can reduce development times by sharing knowledge and experience between devs and by avoiding misunderstandings in the
 team.
 * __Stay committed to the methodology__: adapt the methodology to suit your entire team but stay committed. It's worthless if for example only half of the team is committed
-and the rest not. The entire team should be in the same direction.
+and the rest is not. The entire team should be in the same direction.
 * __Measure, track and review__: you should be constantly looking at how your team is doing. Look for key metrics such as estimated velocity, volatility, burndown and burnup 
 charts. If you don't track you can't improve. Measuring and tracking allows management to adapt and take decision looking for improvement.
 * __Document, document and document__: again, decisions are commonly forgotten if they are not documented. If some decision is important in the context of some feature or
